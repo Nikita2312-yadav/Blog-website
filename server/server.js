@@ -11,12 +11,18 @@ app.use(express.json());
 
 await connectDB();  
 
+
+app.get('/', (req, res) => {
+  res.send('API is running...');
+});
+
+
 app.use('/api/admin',adminRouter);
 app.use('/api/blog',blogRouter);  
 const PORT=process.env.PORT||3000;
 
-app.listen(PORT,()=>{
-    console.log("server started at" +PORT);
-})
+// app.listen(PORT,()=>{
+//     console.log("server started at" +PORT);
+// })
 
 export default app;  
